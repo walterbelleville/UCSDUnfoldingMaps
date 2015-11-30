@@ -226,7 +226,7 @@ public class EarthquakeCityMap extends PApplet implements KeyListener {
 	// Helper method for key pressed 
 	public void keyPressed(KeyEvent e) {
 		// Hide earthquake markers shortcut h key
-	    if(e.getKeyCode() == KeyEvent.VK_H) {
+	    if(e.getKeyCode() == KeyEvent.VK_Q) {
 	    	for (Marker m : quakeMarkers) {
 				EarthquakeMarker marker = (EarthquakeMarker)m;
 				// Turn off markers with h or H
@@ -234,44 +234,35 @@ public class EarthquakeCityMap extends PApplet implements KeyListener {
 			}
 	    }
 	    // unhide earthquake markers shortcut g key
-	    else if(e.getKeyCode() == KeyEvent.VK_G) {
+	    else if(e.getKeyCode() == KeyEvent.VK_W) {
 	    	for(Marker m : quakeMarkers) {
 				EarthquakeMarker marker = (EarthquakeMarker)m;
 				marker.setHidden(false);
 			}
 	    }
 	    // Hide city markers with shortcut f key
-	    else if(e.getKeyCode() == KeyEvent.VK_F) {
+	    else if(e.getKeyCode() == KeyEvent.VK_A) {
 	    	for(Marker m : cityMarkers) {
 	    		CommonMarker marker = (CommonMarker)m;
 	    		marker.setHidden(true);
 	    	}
 	    }
 	    // Unhide city markers with shortcut d key
-	    else if(e.getKeyCode() == KeyEvent.VK_D) {
+	    else if(e.getKeyCode() == KeyEvent.VK_S) {
 	    	for(Marker m : cityMarkers) {
 	    		CommonMarker marker = (CommonMarker)m;
 	    		marker.setHidden(false);
 	    	}
 	    }
+	    // Zoom in
+	    else if(e.getKeyCode() == KeyEvent.VK_1) {
+	    	map.zoomIn();
+	    }
+	    // Zoom out
+	    else if(e.getKeyCode() == KeyEvent.VK_2) {
+	    	map.zoomOut();
+	    }
 	}
-	
-	// Helper method to hide markers when key pressed
-	/*private void hideEarthquakesWithKey(int keyCode) {
-		//if(keyCode != 72 || keyCode != 104 || keyCode != 71 || keyCode != 103) return;
-		if(keyCode == 72 || keyCode == 104) {
-			for (Marker m : quakeMarkers) {
-				EarthquakeMarker marker = (EarthquakeMarker)m;
-				// Turn off markers with h or H
-				marker.setHidden(true);
-			}
-		} else if (keyCode == 71 || keyCode == 103) { // Turn on markers with g or G
-			for(Marker m : quakeMarkers) {
-				EarthquakeMarker marker = (EarthquakeMarker)m;
-				marker.setHidden(false);
-			}
-		}
-	}*/
 
 
 	// Helper method that will check if a city marker was clicked on
@@ -410,6 +401,8 @@ public class EarthquakeCityMap extends PApplet implements KeyListener {
 		text("g Unhide quake markers", xbase+5, ybase+280);
 		text("f Hide city markers", xbase+5, ybase+300);
 		text("d Unhide city markers", xbase+5, ybase+320);
+		text("1 Zoom In", xbase+5, ybase+340);
+		text("2 Zoom Out", xbase+5, ybase+360);
 		/*fill(209, 203, 205);
 		ellipse(xbase+45, ybase+470, 40, 40);
 		text("+", xbase+45, ybase+470);
