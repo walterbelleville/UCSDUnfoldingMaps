@@ -89,6 +89,7 @@ public class EarthquakeCityMap extends PApplet implements KeyListener {
 		}
 		else {
 			map = new UnfoldingMap(this, 200, 50, 650, 600, new Google.GoogleMapProvider());
+			map.zoomAndPanTo(new Location(37.64f, -117.29f), 3);
 			// IF YOU WANT TO TEST WITH A LOCAL FILE, uncomment the next line
 		    //earthquakesURL = "2.5_week.atom";
 		}
@@ -397,10 +398,10 @@ public class EarthquakeCityMap extends PApplet implements KeyListener {
 		textAlign(LEFT, CENTER);
 		fill(0, 0, 0);
 		text("Shortcuts", xbase+50, ybase+240);
-		text("h Hide quake markers", xbase+5, ybase+260);
-		text("g Unhide quake markers", xbase+5, ybase+280);
-		text("f Hide city markers", xbase+5, ybase+300);
-		text("d Unhide city markers", xbase+5, ybase+320);
+		text("q Hide quake markers", xbase+5, ybase+260);
+		text("w Unhide quake markers", xbase+5, ybase+280);
+		text("a Hide city markers", xbase+5, ybase+300);
+		text("s Unhide city markers", xbase+5, ybase+320);
 		text("1 Zoom In", xbase+5, ybase+340);
 		text("2 Zoom Out", xbase+5, ybase+360);
 		/*fill(209, 203, 205);
